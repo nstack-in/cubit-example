@@ -1,5 +1,6 @@
 import 'package:bloc_example/home/cubit/counter_cubit.dart';
 import 'package:bloc_example/home/cubit/counter_state.dart';
+import 'package:bloc_example/settings/views/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cubit Example'),
+        actions: [
+          ElevatedButton(
+            onPressed: (){
+              final route = MaterialPageRoute(
+                builder: (context) => const SettingPage()
+              );
+              Navigator.push(context, route);
+            }, 
+            child: const Text('Setting'),
+          )
+        ],
       ),
       body: BlocBuilder<CounterCubit, CounterState>(
         builder: (context, state) {
