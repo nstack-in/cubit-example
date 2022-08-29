@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cubit Example'),
       ),
-      body: BlocBuilder<CounterCubit, int>(
+      body: BlocBuilder<CounterCubit, CounterState>(
         builder: (context, state) {
           return   Center(
             child: Text(
-              '$state',
+              '${state.count}',
               style: Theme.of(context).textTheme.headline3,
             ),
           );
